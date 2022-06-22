@@ -1,1 +1,17 @@
-<p>project-page works!</p>
+<div class="project__container">
+    <button [routerLink]="'/project/create'">Add</button>
+    <div class="resumeProject__container">
+        <div *ngFor="let project of Object.values(this.projectData)" class="project__container_item">
+            <div class="container__left"></div>
+            <span class="item_id">{{project.id}}</span>
+            <p class="item_title">{{project.title}}</p>
+            <p class="item_description">{{project.id}}</p>
+            <div class="item__reference">
+                <span class="reference">{{project.reference}}</span>
+            </div>
+            <div class="container__right">
+                <!-- Icon deleted and edit -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ProjectDetailsPageComponent } from './project-details-page/project-details-page.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ProjectDetailsPageComponent
   ],
   imports: [
     BrowserModule,

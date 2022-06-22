@@ -10,8 +10,7 @@ export const generateJWT = (req: Request, res: Response) => {
 
 
     if (username) {
-        const token = jwt.sign({ username: username }, `${process.env.KEY_JWT}`, { expiresIn: "24h" });
-        res.status(200).cookie("token", token).send(token).redirect("/");
+        const token: string = jwt.sign({ username: username }, `${process.env.KEY_JWT}`, { expiresIn: "24h" });
+        res.status(201).json(token);
     }
-
 }

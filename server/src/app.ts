@@ -15,7 +15,7 @@ const app: Application = express();
 app.use(express.json());
 
 //CORS
-app.use(cors({ origin: true }));
+app.use(cors({ origin: "http://localhost:4200" }));
 
 //MoogoDB connect
 

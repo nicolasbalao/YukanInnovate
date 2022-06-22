@@ -1,0 +1,20 @@
+<div class="details__container">
+    <h2 class="details__container_title">Create new project</h2>
+    <div class="details__container_form">
+        <div class="form_titleProject">
+            <label for="title_">Title: </label>
+            <input type="text" placeholder="nom du projet" id="title" #titleProject>
+        </div>
+        <div class="form_referenceProject">
+            <label for="reference">Référence: </label>
+            <input type="text" placeholder="la reference" id="reference" #referenceProject>
+        </div>
+        <div class="form_descriptionProject">
+            <label for="description">Description: </label>
+            <input type="text" placeholder="la reference" id="description" #description>
+        </div>
+        <button class="form_submitButton"
+            (click)="saveOnDB(titleProject.value, referenceProject.value, description.value)">Create</button>
+    </div>
+
+</div>

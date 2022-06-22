@@ -3,8 +3,9 @@
     <div class="login__container_form">
         <div class="form_cerds">
             <label for="username">Username</label>
-            <input type="text" placeholder="username" name="username">
+            <input type="text" placeholder="username" name="username" #username>
         </div>
-        <button class="form_submit">Login</button>
+        <button class="form_submit" (click)="login(username.value)">Login</button>
+        <div>{{this.tokenJWT}}</div>
     </div>
 </div>

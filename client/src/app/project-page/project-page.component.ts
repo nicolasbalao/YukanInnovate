@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-project-page',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectPageComponent implements OnInit {
 
-  constructor() { }
+  Object = Object;
+
+
+  constructor(private _httpClient: HttpClient) { }
+
+  projectData: Object = {};
+
 
   ngOnInit(): void {
+    this._httpClient.get("http://localhost:3000/api/project").subscribe(res => {
+      this.projectData = res;
+      console.log(this.projectData)
+    });
   }
 
 }
