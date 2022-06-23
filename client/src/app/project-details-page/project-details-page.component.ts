@@ -1,27 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { }
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-project-details-page',
   templateUrl: './project-details-page.component.html',
   styleUrls: ['./project-details-page.component.scss']
 })
+
+
+
+
 export class ProjectDetailsPageComponent implements OnInit {
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient, private _route: ActivatedRoute, private _apiService: ApiService) { }
+
+
+  id!: string;
+  projectData: any;
 
   ngOnInit(): void {
-  }
+    this.id = this._route.snapshot.params['projectId'];
+    console.log("id", this.id);
 
-  saveOnDB(title: string, reference: string, description: string) {
-    const body: object = {
-      "title": title,
-      "reference": reference,
-      "description": description,
+    if (this.id !== "create") {
+      this._apiService.projectById(this.id).subscribe(res => this.projectData = res);
     }
 
-    this._httpClient.post("http://localhost:3000/api/project", body).subscribe(res => console.log(res))
   }
 
 

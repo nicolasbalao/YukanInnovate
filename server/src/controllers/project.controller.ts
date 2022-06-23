@@ -38,6 +38,7 @@ export const getProjectById = (req: Request, res: Response) => {
 
 // PUT update a project by Id to the DB
 export const updateProjectById = (req: Request, res: Response) => {
+    console.log(req.body);
     Project.findOneAndUpdate({ _id: req.params.id }, req.body, (err: Error, projectUpdate: ProjectInt) => {
         if (err) {
             res.status(400).send(err);

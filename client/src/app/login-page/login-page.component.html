@@ -5,7 +5,7 @@
             <label for="username">Username</label>
             <input type="text" placeholder="username" name="username" #username>
         </div>
-        <button class="form_submit" (click)="login(username.value)">Login</button>
+        <button class="form_submit" (click)="onSubmit(username.value)">Login</button>
         <div>{{this.tokenJWT}}</div>
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -13,13 +15,15 @@ export class LoginPageComponent {
 
 
 
-  constructor(private __httpClient: HttpClient) { }
+  constructor(private _authService: AuthService, private _router: Router) { }
 
   tokenJWT: object = {};
 
-  login(username: string): void {
-    this.__httpClient.post("http://localhost:3000/api/login", { "username": username }).subscribe(res => this.tokenJWT = res);
+  onSubmit(username: string) {
+    this._authService.login(username).subscribe(res => {
+      console.log(res);
+      this._router.navigate(['/']);
+    })
   }
-
 
 }
