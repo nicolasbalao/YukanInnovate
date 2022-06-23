@@ -33,7 +33,7 @@ export class ApiService {
 
 
     //PUT update a project
-    udpateProject(title: string, reference: string, description: string, id: string) {
+    updateProject(title: string, reference: string, description: string, id: string) {
         const body = {
             "title": title,
             "reference": reference,

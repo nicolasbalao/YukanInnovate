@@ -15,6 +15,7 @@ export class AuthService {
         this._isLoggedIn$.next(!!token);
     }
 
+    //Send request for login and stock in localStorage the auth token
     login(username: string) {
         return this._httpClient.post("http://localhost:3000/api/login", { "username": username }).pipe(
             tap((res: any) => {

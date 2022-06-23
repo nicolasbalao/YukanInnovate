@@ -1,14 +1,16 @@
 <div class="create__container">
 
     <h2 class="create__container_title">Create new project</h2>
-    <form class="create__container_form">
-        <label for="title_">Title: </label>
-        <input type="text" placeholder="nom du projet" id="title" #titleProjectCreate required>
-        <label for="reference">Référence: </label>
+    <form class="create__container_form"
+        (keydown.enter)="createProject(titleProjectCreate.value, referenceProjectCreate.value, descriptionProjectCreate.value)">
+        <label for="title_">Title </label>
+        <input type="text" placeholder="nom du project" id="title" #titleProjectCreate required>
+        <label for="reference">Reference: </label>
         <input type="text" placeholder="la reference" id="reference" #referenceProjectCreate required>
 
         <label for="description">Description: </label>
-        <textarea placeholder="La description du projet" id="description" #descriptionProjectCreate required></textarea>
+        <textarea placeholder="La description du project" id="description" #descriptionProjectCreate
+            required></textarea>
 
         <input class="form_submitButton"
             (click)="createProject(titleProjectCreate.value, referenceProjectCreate.value, descriptionProjectCreate.value)"

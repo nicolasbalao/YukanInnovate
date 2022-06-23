@@ -18,7 +18,7 @@ export class ModifyProjectComponent implements OnInit {
   }
 
   updateProject(title: string, reference: string, description: string) {
-    this._apiService.udpateProject(title, reference, description, this.id).subscribe(res => {
+    this._apiService.updateProject(title, reference, description, this.id).subscribe(res => {
       console.log("Object modified", res);
     });
     this._router.navigate(["/"]);

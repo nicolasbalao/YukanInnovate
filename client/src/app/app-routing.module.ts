@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: ProjectPageComponent, canActivate: [IsAuthenticateGuard] },
   { path: 'login', component: LoginPageComponent },
   { path: 'project/:projectId', component: ProjectDetailsPageComponent, canActivate: [IsAuthenticateGuard] },
-  //{ path: 'project/create', component: ProjectDetailsPageComponent, canActivate: [IsAuthenticateGuard] }
+  { path: 'project/create', component: ProjectDetailsPageComponent, canActivate: [IsAuthenticateGuard] }
 
 ];
 

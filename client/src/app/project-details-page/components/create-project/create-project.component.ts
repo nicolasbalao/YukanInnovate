@@ -18,6 +18,7 @@ export class CreateProjectComponent implements OnInit {
     this._apiService.createProject(title, reference, description).subscribe(res => {
       console.log("Project create", res);
     })
+    alert("New project created");
     this._router.navigate(["/"]);
   }
 

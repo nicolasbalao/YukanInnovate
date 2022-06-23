@@ -1,7 +1,6 @@
 <div class="login__container">
     <h2 class="login__container_title">Login</h2>
-    <form class="login__container_form">
-
+    <form class="login__container_form" (keydown.enter)="onSubmit(username.value)">
         <div class="form__group field">
             <input type="input" class="form__field" placeholder="Name" id='name' #username required />
             <label for="name" class="form__label">Username</label>

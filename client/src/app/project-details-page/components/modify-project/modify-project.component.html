@@ -1,15 +1,16 @@
 <div class="details__container">
     <h2 class="details__container_title">Edit project</h2>
-    <form class="details__container_form">
+    <form class="details__container_form"
+        (keydown.enter)="updateProject(titleProjectModify.value, referenceProjectModify.value, descriptionProjectModify.value)">
         <label for="title_">Title: </label>
-        <input type="text" placeholder="nom du projet" id="title" value="{{this.projectData.title}}" #titleProjectModify
-            required>
-        <label for="reference">Référence: </label>
+        <input type="text" placeholder="nom du project" id="title" value="{{this.projectData.title}}"
+            #titleProjectModify required>
+        <label for="reference">Reference: </label>
         <input type="text" placeholder="la reference" id="reference" value="{{this.projectData.reference}}"
             #referenceProjectModify required>
 
         <label for="description">Description: </label>
-        <textarea placeholder="La description du projet" id="description" value="{{this.projectData.description}}"
+        <textarea placeholder="La description du project" id="description" value="{{this.projectData.description}}"
             #descriptionProjectModify required></textarea>
 
         <div class="container__buttons">
@@ -17,7 +18,7 @@
             <input class="form_modifyButton button"
                 (click)="updateProject(titleProjectModify.value, referenceProjectModify.value, descriptionProjectModify.value)"
                 type="submit" value="modify">
-            <input class="form_delButton button" type="submit" value="deltete" (click)="deleteProject()">
+            <input class="form_delButton button" type="submit" value="delete" (click)="deleteProject()">
         </div>
 
     </form>

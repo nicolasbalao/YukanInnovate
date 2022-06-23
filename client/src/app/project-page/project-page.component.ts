@@ -10,6 +10,7 @@ import { ApiService } from '../api.service';
 })
 export class ProjectPageComponent implements OnInit {
 
+  // Object for using Object.values() in *ngFor
   Object = Object;
 
 
@@ -19,14 +20,20 @@ export class ProjectPageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._apiService.getAllProject().subscribe(res => {
-      this.projectData = res;
-    })
+    this.getAllProject()
   }
 
   deleteProject(id: string) {
-    this._apiService.deleteProjectById(id).subscribe(res => console.log("Project deleted", res))
-    this.ngOnInit();
+    this._apiService.deleteProjectById(id).subscribe(res => {
+      console.log("Project deleted", res)
+      this.ngOnInit();
+    });
+  }
+
+  getAllProject() {
+    this._apiService.getAllProject().subscribe(res => {
+      this.projectData = res;
+    })
   }
 
 }

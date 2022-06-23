@@ -6,6 +6,7 @@ import Project, { ProjectInt } from '../models/project.model'
 export const createProject = (req: Request, res: Response) => {
     const project = new Project(req.body);
 
+    //mongoose method for saving data to the DB 
     project.save((err: Error, project: ProjectInt) => {
         if (err) {
             res.status(400).send(err);
@@ -16,6 +17,8 @@ export const createProject = (req: Request, res: Response) => {
 
 //GET all project from the DB
 export const getAllProject = (req: Request, res: Response) => {
+
+    //mongoose method for get all item
     Project.find({}, (err: Error, projects: ProjectInt) => {
         if (err) {
             res.status(400).send(err);
@@ -26,7 +29,6 @@ export const getAllProject = (req: Request, res: Response) => {
 
 // GET specific project by id from the DB
 export const getProjectById = (req: Request, res: Response) => {
-    console.log("test", req.params.id);
     Project.findById(req.params.id, (err: Error, project: ProjectInt) => {
         if (err) {
             res.status(400).send(err);
@@ -38,7 +40,6 @@ export const getProjectById = (req: Request, res: Response) => {
 
 // PUT update a project by Id to the DB
 export const updateProjectById = (req: Request, res: Response) => {
-    console.log(req.body);
     Project.findOneAndUpdate({ _id: req.params.id }, req.body, (err: Error, projectUpdate: ProjectInt) => {
         if (err) {
             res.status(400).send(err);
