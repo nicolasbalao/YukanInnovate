@@ -1,11 +1,11 @@
 <div class="login__container">
     <h2 class="login__container_title">Login</h2>
-    <div class="login__container_form">
-        <div class="form_cerds">
-            <label for="username">Username</label>
-            <input type="text" placeholder="username" name="username" #username>
+    <form class="login__container_form">
+
+        <div class="form__group field">
+            <input type="input" class="form__field" placeholder="Name" id='name' #username required />
+            <label for="name" class="form__label">Username</label>
         </div>
-        <button class="form_submit" (click)="onSubmit(username.value)">Login</button>
-        <div>{{this.tokenJWT}}</div>
-    </div>
+        <input class="form_submit" type="submit" value="Login" (click)="onSubmit(username.value)">
+    </form>
 </div>

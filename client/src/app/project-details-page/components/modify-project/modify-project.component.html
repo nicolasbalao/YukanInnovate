@@ -1,24 +1,24 @@
-<h2 class="details__container_title">Edit project</h2>
-<form class="details__container_form">
-    <div class="form_titleProject">
+<div class="details__container">
+    <h2 class="details__container_title">Edit project</h2>
+    <form class="details__container_form">
         <label for="title_">Title: </label>
-        <input type="text" placeholder="nom du projet" id="title" value="{{this.projectData.title}}" #titleProjectCreate
+        <input type="text" placeholder="nom du projet" id="title" value="{{this.projectData.title}}" #titleProjectModify
             required>
-    </div>
-    <div class="form_referenceProject">
         <label for="reference">Référence: </label>
         <input type="text" placeholder="la reference" id="reference" value="{{this.projectData.reference}}"
-            #referenceProjectCreate required>
+            #referenceProjectModify required>
 
-    </div>
-    <div class="form_descriptionProject">
         <label for="description">Description: </label>
         <textarea placeholder="La description du projet" id="description" value="{{this.projectData.description}}"
-            #descriptionProjectCreate required></textarea>
+            #descriptionProjectModify required></textarea>
 
-    </div>
-    <input class="form_submitButton"
-        (click)="updateProject(titleProjectCreate.value, referenceProjectCreate.value, descriptionProjectCreate.value)"
-        type="submit" value="modify">
+        <div class="container__buttons">
 
-</form>
+            <input class="form_modifyButton button"
+                (click)="updateProject(titleProjectModify.value, referenceProjectModify.value, descriptionProjectModify.value)"
+                type="submit" value="modify">
+            <input class="form_delButton button" type="submit" value="deltete" (click)="deleteProject()">
+        </div>
+
+    </form>
+</div>

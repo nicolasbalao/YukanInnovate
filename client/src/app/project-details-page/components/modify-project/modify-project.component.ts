@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -11,14 +12,26 @@ export class ModifyProjectComponent implements OnInit {
   @Input() id!: string;
   @Input() projectData: any;
 
-  constructor(private _apiService: ApiService) { }
+  constructor(private _apiService: ApiService, private _router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.projectData)
   }
 
   updateProject(title: string, reference: string, description: string) {
-    this._apiService.udpateProject(title, reference, description, this.id);
+    this._apiService.udpateProject(title, reference, description, this.id).subscribe(res => {
+      console.log("Object modified", res);
+    });
+    this._router.navigate(["/"]);
+
+  }
+
+  deleteProject() {
+    this._apiService.deleteProjectById(this.id).subscribe(res => {
+      console.log("Project deleted", res);
+
+    });
+    this._router.navigate(["/"]);
+
   }
 
 }

@@ -22,8 +22,8 @@ export class LoginPageComponent {
   onSubmit(username: string) {
     this._authService.login(username).subscribe(res => {
       console.log(res);
-      this._router.navigate(['/']);
     })
+    this._router.navigate(['/']);
   }
 
 }

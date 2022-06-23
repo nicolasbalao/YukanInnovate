@@ -1,18 +1,28 @@
 <div class="project__container">
-    <button [routerLink]="'/project/create'">Add</button>
-    <div class="resumeProject__container">
-        <div *ngFor="let project of Object.values(this.projectData)" class="project__container_item">
-            <div class="container__left"></div>
-            <span class="item_id">{{project.id}}</span>
-            <p class="item_title">{{project.title}}</p>
-            <p class="item_description">{{project.id}}</p>
-            <div class="item__reference">
-                <span class="reference">{{project.reference}}</span>
+    <div class="project__container_header">
+        <h1>Project List</h1>
+        <button class="button_add" [routerLink]="'/project/create'">Add</button>
+    </div>
+    <div *ngFor="let project of Object.values(this.projectData); let index = index" class="project__container_item">
+        <div class="container__left">
+            <span class="item_id">{{index}}</span>
+            <div class="data_container">
+                <h4>Title</h4>
+                <p class="item_title">{{project.title}}</p>
             </div>
-            <div class="container__right">
-                <!-- Icon deleted and edit -->
-                <button [routerLink]="['/project', project._id]">test</button>
+            <div class="data_container">
+                <h4>Description</h4>
+                <p class="item_description">{{project.description}}</p>
             </div>
+            <div class="data_container">
+                <h4>Référence</h4>
+                <p class="reference">{{project.reference}}</p>
+            </div>
+        </div>
+        <div class="container__right">
+            <!-- Icon deleted and edit -->
+            <img [routerLink]="['/project', project._id]" src="../../assets/edit_icon.png" alt="edit icon" />
+            <img src="../../assets/delete_icon.png" alt="delete icon" (click)="deleteProject(project._id)" />
         </div>
     </div>
 </div>

@@ -22,10 +22,9 @@ export class ProjectDetailsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this._route.snapshot.params['projectId'];
-    console.log("id", this.id);
 
     if (this.id !== "create") {
-      this._apiService.projectById(this.id).subscribe(res => this.projectData = res);
+      this._apiService.getProjectById(this.id).subscribe(res => this.projectData = res);
     }
 
   }

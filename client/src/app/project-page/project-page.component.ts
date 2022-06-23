@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -12,16 +13,20 @@ export class ProjectPageComponent implements OnInit {
   Object = Object;
 
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient, private _apiService: ApiService) { }
 
   projectData: Object = {};
 
 
   ngOnInit(): void {
-    this._httpClient.get("http://localhost:3000/api/project").subscribe(res => {
+    this._apiService.getAllProject().subscribe(res => {
       this.projectData = res;
-      console.log(this.projectData)
-    });
+    })
+  }
+
+  deleteProject(id: string) {
+    this._apiService.deleteProjectById(id).subscribe(res => console.log("Project deleted", res))
+    this.ngOnInit();
   }
 
 }

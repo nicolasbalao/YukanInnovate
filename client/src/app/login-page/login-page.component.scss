@@ -1,0 +1,105 @@
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.login__container {
+
+    border-radius: 10px;
+    text-align: center;
+
+    padding: 5rem 5rem 3rem;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .login__container_title {
+        color: transparent;
+        font-size: 5rem;
+        font-weight: 700;
+        background: linear-gradient(to right, $primary, $secondary);
+        -webkit-background-clip: text;
+    }
+
+    .login__container_form {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+
+        .form_submit {
+            border: none;
+            background-image: linear-gradient(to right, $primary, $secondary);
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: grey;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown~.form__label {
+        font-size: 2rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $gray;
+}
+
+.form__field:focus {
+    ~.form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: $primary;
+        font-weight: 700;
+    }
+
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $primary, $secondary);
+    border-image-slice: 1;
+}
+
+/* reset input */
+.form__field {
+
+    &:required,
+    &:invalid {
+        box-shadow: none;
+    }
+}
