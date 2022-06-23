@@ -6,6 +6,9 @@
 
 - [ ] send message to the frontend when is updating and create , delete
 
+## Question
+
+- What is the behavior 
 
 ## DOCS
 

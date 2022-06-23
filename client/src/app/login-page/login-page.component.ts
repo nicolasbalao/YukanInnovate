@@ -19,11 +19,12 @@ export class LoginPageComponent {
 
   tokenJWT: object = {};
 
-  onSubmit(username: string) {
+  login(username: string) {
     this._authService.login(username).subscribe(res => {
-      console.log(res);
-    })
-    this._router.navigate(['/']);
+      console.log("Logged", res);
+      this._router.navigate(['/']);
+    }
+    );
   }
 
 }
