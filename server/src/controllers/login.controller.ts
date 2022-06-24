@@ -10,7 +10,7 @@ export const generateJWT = (req: Request, res: Response) => {
 
 
     if (username) {
-        const token: string = jwt.sign({ username: username }, `${process.env.KEY_JWT}`, { expiresIn: "24h" });
+        const token: string = jwt.sign({ username: username, isAdmin: false }, `${process.env.KEY_JWT}`, { expiresIn: "24h" });
         res.status(201).json(token);
     }
 }

@@ -49,4 +49,12 @@ export class ApiService {
         return this._httpClient.delete(`http://localhost:3000/api/project/${id}`)
     }
 
+    //POST Admin
+    adminPage() {
+        const token = { "token": localStorage.getItem("auth") };
+        console.log(token)
+
+        return this._httpClient.post("http://localhost:3000/api/admin", token);
+    }
+
 }
