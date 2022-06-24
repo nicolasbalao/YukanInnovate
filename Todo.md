@@ -1,12 +1,3 @@
-# To do 
-
-## Frontend
-
-## Backend
-
-- [ ] send message to the frontend when is updating and create , delete
-
-
 ## DOCS
 
 - BehaviorSubject ==> Requires an initial value and emits the current value to new subscribers

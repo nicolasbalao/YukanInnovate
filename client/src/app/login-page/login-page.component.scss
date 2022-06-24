@@ -18,6 +18,7 @@ $gray: #9b9b9b;
         font-weight: 700;
         background: linear-gradient(to right, $primary, $secondary);
         -webkit-background-clip: text;
+        background-clip: text;
     }
 
     .login__container_form {
